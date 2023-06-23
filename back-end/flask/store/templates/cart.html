@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Shopping Cart</h1>
+    
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>
+                    <h2>{{ book["title"] }} by {{ book["author"] }}</h2>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>Shopping cart is empty!</h2>
+    {% endif %}
+
+    <a href="/">Go to all books</a>
+{% endblock %}

@@ -1,5 +1,0 @@
-# One compilation
-sass a.scss:a.css
-
-# Compiles every time change is made
-sass --watch a.scss:a.css

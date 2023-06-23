@@ -1,0 +1,5 @@
+INSERT INTO klienci VALUES (NULL,"Franciszek", "Jankowski","Chorzów")
+INSERT INTO zamowienia (idzamowienia, data, status, idklienta, idksiazki) VALUES (NULL, "2016-01-01", "oczekiwanie", 7, 3)
+INSERT INTO ksiazki (idksiazki, nazwiskoautora, tytul) VALUES (NULL, "Grębosz", "Symfonia C++")
+INSERT INTO klienci VALUES (NULL, "Marilyn", "Monroe", "Los Angeles"), (NULL, "John", "Wayne", "Los Angeles")
+INSERT INTO klienci SET idklienta=NULL, imie="Steve", nazwisko="McQueen", miejscowosc="Los Angeles"

@@ -1,0 +1,46 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Your Listings</h2>
+
+    {% for listing, price in listings %}
+    {% if listing.is_closed == False %}
+        <a href="{% url 'listing' listing.id %}">
+            <div class="form-group border">
+
+                <div id="left" class="imgbox"><img class="center-fit" src="{{ listing.image_url }}" alt="{{ listing.title }}"></div>
+                <div id="right">
+                    <h4 style="font-weight: bold;">{{ listing.title }}</h4>
+                    <span style="font-weight: bold; font-size: 20px">Price</span> <span style="font-size: 20px">${{ price|stringformat:".2f"  }}</span> <br>
+                    <div class="creation_date">Created {{ listing.datetime }}</div>
+                    {% if listing.user == request.user %}
+                    <form action="{% url 'close_listing' listing.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="Close this Listing" class="remove_watchlist_button" style="width: 200px; display: flex; justify-content: center;">
+                    </form>
+                    {% endif %}
+                </div>
+                
+                <div style="clear: both;"></div>
+            </div>
+        </a>
+    {% else %}
+        <div class="form-group border" style="opacity: 0.5;">
+
+            <div id="left" class="imgbox"><img class="center-fit" src="{{ listing.image_url }}" alt="{{ listing.title }}"></div>
+            <div id="right">
+                <h4 style="font-weight: bold;">{{ listing.title }}</h4>
+                <span style="font-weight: bold; font-size: 20px">Price</span> <span style="font-size: 20px">${{ price|stringformat:".2f"  }}</span> <br>
+                <div class="creation_date">Created {{ listing.datetime }}</div>
+                <div class="closed">Closed</div>
+            </div>
+            
+            <div style="clear: both;"></div>
+        </div>
+    {% endif %}
+
+    {% empty %}
+        You don't have any active listings
+    {% endfor %}
+
+{% endblock %}

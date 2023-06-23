@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Won auctions</h2>
+
+    {% for listing, price in won_listings %}
+    
+    <div class="form-group border">
+
+        <div id="left" class="imgbox"><img class="center-fit" src="{{ listing.image_url }}" alt="{{ listing.title }}"></div>
+        <div id="right">
+            <h4 style="font-weight: bold;">{{ listing.title }}</h4>
+            <span style="font-weight: bold; font-size: 20px">Price</span> <span style="font-size: 20px">${{ price|stringformat:".2f" }}</span> <br>
+            <div class="creation_date">Created {{ listing.datetime }}</div>
+            <div class="won">Won</div>
+        </div>
+        
+        <div style="clear: both;"></div>
+    </div>
+  
+    {% empty %}
+        You don't have any won auctions
+    {% endfor %}
+
+{% endblock %}

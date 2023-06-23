@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+
+    <style>
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .color {
+            margin: 80px;
+            padding: 20px;
+            font-size: 40px;
+            border-radius: 5%;
+            color: white;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".color").forEach(color => {
+                color.onmouseover = () => {
+                    document.querySelector("body").style.backgroundColor = color.dataset.color;
+                }
+                color.onmouseout = () => {
+                    document.querySelector("body").style.backgroundColor = "white";
+                }
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    
+    <div class="flex">
+        <div class="color" data-color="red" style="background-color: red;">Red</div>
+        <div class="color" data-color="green" style="background-color: green;">Green</div>
+        <div class="color" data-color="blue" style="background-color: blue;">Blue</div>
+    </div>
+
+</body>
+</html>

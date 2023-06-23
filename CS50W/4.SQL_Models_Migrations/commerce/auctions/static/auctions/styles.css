@@ -1,0 +1,144 @@
+body {
+    padding: 10px;
+}
+
+#left {
+    float: left;
+    margin: 10px;
+}
+
+#right{
+    float: left;
+    margin: 10px;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.creation_date {
+    font-size: 16px;
+    color: gray;
+}
+
+.border {
+    border-radius: 4px;
+    border: 1px, solid, grey;
+}
+
+.imgbox {
+    height: 200px;
+    width: 300px;
+}
+.center-fit {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.listing_imgbox {
+    height: 300px;
+    width: 400px;
+    margin: 10px;
+}
+
+.listing_specifics {
+    margin: 10px;
+    padding: 10px;
+}
+
+.des {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.details {
+    padding: 10px;
+    margin: 10px;
+}
+
+.bid {
+    margin: 10px;
+    padding: 10px;
+    font-size: 24px;
+}
+
+#add_to_watchlist_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.add_watchlist_button {
+    color: white;
+    background-color: rgb(17, 71, 17);
+    margin-right: 50px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.remove_watchlist_button {
+    
+    background-color: rgb(102, 19, 19);
+    margin-right: 50px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.add_watchlist_button:hover {
+    background-color: rgb(25, 100, 25);
+}
+
+.remove_watchlist_button:hover {
+    
+    background-color: rgb(158, 29, 29);
+}
+
+.closed {
+    background-color: rgb(102, 19, 19);
+    margin-right: 50px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.won {
+    color: white;
+    background-color: rgb(17, 71, 17);
+    margin-right: 50px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.commentBox {
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+    margin-top: 20px;
+}
+
+.comments {
+    max-height: 300px;
+    overflow: auto;
+    text-align:justify;
+}

@@ -1,0 +1,27 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+    {% for listing, price in listings_in_watchlist %}
+    {% if listing.is_closed == False %}
+    <a href="{% url 'listing' listing.id %}">
+        <div class="form-group border">
+
+            <div id="left" class="imgbox"><img class="center-fit" src="{{ listing.image_url }}" alt="{{ listing.title }}"></div>
+            <div id="right">
+                <h4 style="font-weight: bold;">{{ listing.title }}</h4>
+                <span style="font-weight: bold; font-size: 20px">Price</span> <span style="font-size: 20px">${{ price|stringformat:".2f" }}</span> <br>
+                <div class="creation_date">Created {{ listing.datetime }}</div>
+                <a href="{% url 'remove_from_watchlist' listing.id %}"><div class="remove_watchlist_button">Remove from watchlist</div></a>
+            </div>
+            
+            <div style="clear: both;"></div>
+        </div>
+    </a>
+    {% endif %}
+    {% empty %}
+        Your watchlist is empty
+    {% endfor %}
+
+{% endblock %}

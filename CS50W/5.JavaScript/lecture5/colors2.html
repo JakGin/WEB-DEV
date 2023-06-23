@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Colors</title>
+
+        <script>
+            
+            document.addEventListener("DOMContentLoaded", () => {
+
+                document.querySelector("body").style.backgroundColor = "gray";
+
+                document.querySelector("select").onchange = function() {
+                    document.querySelector("#heading").style.color = this.value;
+                };
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1 id="heading">Hello!</h1>
+
+        <select>
+            <option value="black">black</option>
+            <option value="red">red</option>
+            <option value="green">green</option>
+            <option value="blue">blue</option>
+        </select>
+    </body>
+</html>

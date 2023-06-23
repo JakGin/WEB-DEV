@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Edit Birthday</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Edit Birthday</h2>
+
+                {% if error %}
+                    <div style="color: red;">{{ wrong_birthday_date }}</div>
+                {% endif %}
+                <form action="/edit" method="post">
+                    <input type="hidden" name="id" value="{{ birthday['id'] }}">
+                    <input type="text" name="name" placeholder="Name" autocomplete="off" value="{{ birthday['name'] }}" required>
+                    <input type="text" name="month" placeholder="Month" autocomplete="off" value="{{ birthday['month'] }}" required>
+                    <input type="text" name="day" placeholder="Day" autocomplete="off" value="{{ birthday['day'] }}" required>
+                    <button type="submite" class="pointer">Edit Birthday</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

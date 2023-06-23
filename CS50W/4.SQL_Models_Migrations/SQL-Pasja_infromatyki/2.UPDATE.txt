@@ -1,0 +1,6 @@
+UPDATE klienci SET nazwiko="Psikuta" WHERE idklienta=4
+UPDATE ksiazki SET cena=ROUND(cena*1.1,2)
+UPDATE ksiazki SET cena=cena-10 ORDER BY cena DESC LIMIT 1
+UPDATE klienci SET imie="Joanna", nazwisko="Dostojewska" WHERE imie="Anna" AND nazwisko="Karenina"
+UPDATE zamowienia SET status="wyslano" WHERE idzamowienia=4 OR idzamowienia=5
+UPDATE zamowienia SET status="wyslano" WHERE idzamowienia BETWEEN 4 AND 5

@@ -7,25 +7,30 @@
   box-sizing: border-box;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* || UTILITY CLASSES */
+.nowrap {
+  white-space: nowrap;
+}
+
 /* || GENERAL STYLES */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: 1.5rem "Nunito", sans-serif;
   min-height: 100vh;
 
-  background-color: #475569;
-  background-image: radial-gradient(whitesmoke, #475569);
+  background-color: #788dad;
   display: flex;
   flex-direction: column;
-}
-
-header,
-nav,
-main,
-footer {
-  display: grid;
-  place-content: center;
-  grid-template-columns: 100%;
-  text-align: center;
+  justify-content: center;
 }
 
 header,
@@ -33,10 +38,15 @@ footer {
   position: sticky;
   background-color: #1e293b;
   color: whitesmoke;
+  text-align: center;
 }
 
 header {
   top: 0;
+}
+
+footer {
+  bottom: 0;
 }
 
 nav {
@@ -44,64 +54,123 @@ nav {
   color: #000;
   padding: 0.5rem;
   border-bottom: 2px solid #000;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+nav a,
+nav a:visited {
+  color: #000;
+}
+
+nav a:hover,
+nav a:focus {
+  color: gray;
 }
 
 main {
   flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-footer {
-  bottom: 0;
+.card {
+  background-color: #bcc8db;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-margin-top: 8rem;
+}
+
+.card img {
+  border-radius: 50%;
+  border: 5px double #333;
+}
+
+.card figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.card figcaption {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem;
+  margin: 1rem;
 }
 
 /* || SMALL */
 @media screen and (min-width: 576px) {
-  body {
-    background-color: green;
-    background-image: radial-gradient(whitesmoke, green);
+  main {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
   }
-  nav {
-    display: none;
+  .card {
+    width: min(100%, 400px);
+  }
+  .card:last-child {
+    order: -1;
   }
 }
 
 /* || MEDIUM */
 @media screen and (min-width: 768px) {
-  body {
-    background-color: gold;
-    background-image: radial-gradient(whitesmoke, gold);
+  nav {
+    display: none;
+  }
+  .card {
+    width: min(100%, 325px);
+  }
+  .card figure {
+    flex-flow:column-reverse;
+  }
+  .card p {
+    margin-top: 1rem;
   }
 }
 
 /* || LARGE */
 @media screen and (min-width: 992px) {
-  body {
-    background-color: firebrick;
-    background-image: radial-gradient(whitesmoke, firebrick);
+  .card {
+    width: min(100%, 400px);
   }
 }
 
 /* || XL  */
 @media screen and (min-width: 1200px) {
-  body {
-    background-color: rebeccapurple;
-    background-image: radial-gradient(whitesmoke, rebeccapurple);
+  .card {
+    width: min(calc(33% - 1rem), 500px);
   }
 }
 
 /* || MOBILE DEVICE LANDSCAPE  */
 @media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
-  body {
-    background-color: dodgerblue;
-    background-image: radial-gradient(whitesmoke, dodgerblue);
-  }
-
-  h1,
-  h2 {
+  h1 {
     font-size: 1.5rem;
   }
 
   nav {
     display: none;
+  }
+
+  main {
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+  }
+
+  .card {
+    width: min(calc(33% - 0.25rem), 200px);
+  }
+
+  .card figcaption, .card p {
+    font-size: 1.25rem;
   }
 }

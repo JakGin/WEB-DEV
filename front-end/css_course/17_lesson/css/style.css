@@ -10,7 +10,7 @@
 /* || GENERAL STYLES */
 body {
   font: 1.5rem "Nunito", sans-serif;
-  min-height: 100vh;
+  min-height: 200vh;
 
   background-color: #475569;
   background-image: radial-gradient(whitesmoke, #475569);
@@ -96,7 +96,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  nav { display: none }
+  nav { display: none; }
 }
 
 

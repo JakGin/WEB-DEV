@@ -4,22 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Media Queries</title>
+    <title>Card mini-project</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
     <header>
-      <h1>Header</h1>
-      <nav><h2>Nav</h2></nav>
+      <h1>Our Staff</h1>
+      <nav>
+        <a href="#card1">Joe</a>
+        <a href="#card2">Matt</a>
+        <a href="#card3">Jane</a>
+      </nav>
     </header>
 
     <main>
-      <h2>Main</h2>
+      <section id="card1" class="card">
+        <figure>
+          <img src="img/profile1-500x500.png" alt="Joe Coder" width="500" height="500"/>
+          <figcaption>Joe Coder</figcaption>
+        </figure>
+        <p><q>I code stuff.</q></p>
+      </section>
+
+      <section id="card2" class="card">
+        <figure>
+          <img src="img/profile2-500x500.png" alt="Joe Coder" width="500" height="500"/>
+          <figcaption>Mat Writer</figcaption>
+        </figure>
+        <p><q>I write stuff.</q></p>
+      </section>
+
+      <section id="card3" class="card">
+        <figure>
+          <img src="img/profile3-500x500.png" alt="Joe Coder" width="500" height="500"/>
+          <figcaption>Jane <span>Dev Rel</span></figcaption>
+        </figure>
+        <p><q>I teach stuff.</q></p>
+      </section>
     </main>
 
     <footer>
-      <h2>Footer</h2>
+      &copy; Acme Co.
     </footer>
   </body>
 </html>

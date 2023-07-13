@@ -9,6 +9,13 @@ body {
   background-color: #282d35;
 }
 
+.container {
+  border:0.4rem solid #21222a;
+  border-radius: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
 nav {
   display: flex;
   align-items: center;

@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav>
       <img
-        src="/src/assets/react-icon-small.png"
+        src="/react-icon-small.png"
         className="nav--icon"
         alt="react logo"
       />

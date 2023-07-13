@@ -1,0 +1,64 @@
+.logo {
+  background-image: url("/images/beach_background.png");
+  background-size: cover;
+  background-position: 100% 60%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  word-spacing: 0.3rem;
+}
+
+.inner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.inner-content img {
+  width: 100px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: rgb(255, 240, 221);
+}
+
+.option:first-child {
+  padding: 1rem;
+  border: 2px dashed black;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.option {
+  padding: 1rem;
+  border-bottom: 2px dashed black;
+  border-top: 2px dashed black;
+  border-right: 2px dashed black;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.option:hover,
+.option:focus {
+  background-color: rgb(255, 217, 170);
+}

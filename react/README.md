@@ -4,9 +4,8 @@ This repository is created to track my learning React journey.
 ![react image](./images/react-icon-small.png)
 
 ## Projects
-0. Fun facts about React - front page
-1. TODO
-2. TODO
+1. [Fun facts about React](https://jakgin-react0.netlify.app/)
+2. [AirBnb](https://jakgin-react1.netlify.app/)
 3. TODO
 4. TODO
 5. TODO

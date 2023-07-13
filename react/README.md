@@ -6,7 +6,7 @@ This repository is created to track my learning React journey.
 ## Projects
 1. [Fun facts about React](https://jakgin-react0.netlify.app/)
 2. [AirBnb](https://jakgin-react1.netlify.app/)
-3. TODO
+3. [Travel](https://jakgin-react2.netlify.app/)
 4. TODO
 5. TODO
 6. TODO

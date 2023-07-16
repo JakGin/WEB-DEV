@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  background-image: linear-gradient(to right, rgb(21, 21, 253), rgb(63, 177, 230));
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  font-size: 2rem;
+  color: #d3ddeb;
+  text-shadow: 2px 2px 2px #222;
+}
+
+.nav img {
+  width: 80px;
+}
+
+.post-code {
+  margin-left: auto;
+}
+
+span {
+  word-wrap: normal;
+  word-break: normal;
+}

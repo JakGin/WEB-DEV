@@ -1,12 +1,15 @@
-import React from "react";
-import "./styles/app.css";
+import React from "react"
+import Nav from "./components/Nav"
+import Meme from "./components/Meme"
+import "./styles/App.css"
 
 function App() {
   return (
     <>
-      <h1>Test</h1>
+      <Nav />
+      <Meme />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

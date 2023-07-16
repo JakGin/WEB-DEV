@@ -1,0 +1,90 @@
+.container {
+  margin: 3rem 2rem;
+}
+
+.inputs {
+  display: flex;
+  gap: 1.3rem;
+  flex-direction: column;
+}
+
+.container input {
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d5d4d8;
+  font-family: Karla;
+  text-indent: 0.4rem;
+  font-size: 1rem;
+}
+
+.container button {
+  margin: 1.5rem 0rem 3rem;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #711f8d 0%, #a818da 100%);
+  color: white;
+  color: white;
+  font-family: Karla;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.meme-image {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+
+.meme-image img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.meme--text {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+      2px 2px 0 #000,
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      0 2px 0 #000,
+      2px 0 0 #000,
+      0 -2px 0 #000,
+      -2px 0 0 #000,
+      2px 2px 5px #000;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
+}
+
+@media (min-width: 600px) {
+  .inputs {
+    flex-direction: row;
+  }
+
+  .container input {
+    width: 100%;
+  }
+}
+
+.download-meme {
+  max-width: 400px;
+  margin: 3rem auto 0rem auto;
+}

@@ -7,3 +7,9 @@
 img {
   display: block;
 }
+
+body {
+  background-color: #ccc;
+  color: white;
+  font-family: Karla;
+}

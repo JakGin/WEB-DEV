@@ -1,10 +1,13 @@
 import React from "react";
+import Nav from "./components/Nav"
+import Main from "./components/Main"
 import "./styles/app.css";
 
 function App() {
   return (
     <>
-      <h1>Test</h1>
+      <Nav />
+      <Main />
     </>
   );
 }

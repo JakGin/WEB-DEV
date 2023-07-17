@@ -1,0 +1,42 @@
+.card {
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 170px;
+  min-width: 170px;
+}
+
+.date {
+  padding: 0.4rem;
+  border-bottom: 2px dashed gray;
+  width: 85%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.08rem;
+}
+
+.weather-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0.5rem;
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.element img {
+  width: 30px;
+}
+
+.units {
+  color: gray;
+}

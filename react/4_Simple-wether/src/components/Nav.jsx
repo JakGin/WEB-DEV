@@ -15,12 +15,12 @@ function Nav() {
         long = position.coords.longitude;
       });
 
-      // const res = await fetch(
-      //   `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&apiKey=7ea427b40c084203ad2bb3ce701fdce1`
-      // );
-      // const data = await res.json();
-      // setCityName(data.features[0].properties.city);
-      // setPostCode(data.features[0].properties.postcode);
+      const res = await fetch(
+        `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&apiKey=${import.meta.env.VITE_API_KEY}`
+      );
+      const data = await res.json();
+      setCityName(data.features[0].properties.city);
+      setPostCode(data.features[0].properties.postcode);
     }
     getLocation();
   }, []);

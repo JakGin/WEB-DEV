@@ -8,12 +8,9 @@ export default function App() {
   const [notes, setNotes] = React.useState(
     () => JSON.parse(localStorage.getItem("notes")) || []
   );
-  const [currentNoteId, setCurrentNoteId] = React.useState(
-    (notes[0]?.id) || ""
-  );
-  const currentNote = notes.find(
-    note => note.id === currentNoteId)
-    || notes[0];
+  const [currentNoteId, setCurrentNoteId] = React.useState(notes[0]?.id || "");
+  const currentNote =
+    notes.find((note) => note.id === currentNoteId) || notes[0];
 
   React.useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));

@@ -2,7 +2,7 @@ import React from "react";
 import "/src/styles/Main.css";
 import Card from "./Card";
 
-function Main() {
+function Main( {location }) {
   const [daysDisplayed, setDaysDisplayed] = React.useState(7);
   const [weatherData, setWeatherData] = React.useState([]);
 
@@ -49,24 +49,16 @@ function Main() {
   }
 
   React.useEffect(() => {
-    let lat = 52.2354;
-    let long = 21.0104;
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      lat = position.coords.latitude;
-      long = position.coords.longitude;
-    });
-
     async function getWeatherData() {
       const res = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max,sunrise,sunset,rain_sum,windspeed_10m_max&timezone=auto`
+        `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longtitude}&daily=temperature_2m_max,sunrise,sunset,rain_sum,windspeed_10m_max&timezone=auto`
       );
       const data = await res.json();
       setWeatherData(initWeatherData(data));
     }
 
     getWeatherData();
-  }, []);
+  }, [location]);
 
   return <main className="main">{cards}</main>;
 }

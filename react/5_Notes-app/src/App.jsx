@@ -10,9 +10,9 @@ export default function App() {
   const [currentNoteId, setCurrentNoteId] = React.useState("");
   const currentNote =
     notes.find((note) => note.id === currentNoteId) || notes[0];
-  const sortedNotes = notes.sort(function(a, b) {
-    return b.updatedAt - a.updatedAt
-  })
+  const sortedNotes = notes.sort(function (a, b) {
+    return b.updatedAt - a.updatedAt;
+  });
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(notesCollection, function (snapshot) {

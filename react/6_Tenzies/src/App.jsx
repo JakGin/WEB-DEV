@@ -1,12 +1,12 @@
 import React from "react";
 import Die from "./components/Die";
 import { nanoid } from "nanoid";
-import Confetti from "react-confetti"
-import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 function App() {
   const nOfDices = 10;
-  const { width, height } = useWindowSize()
+  const { width, height } = useWindowSize();
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
   const diceElements = dice.map((die) => (
@@ -19,9 +19,9 @@ function App() {
   ));
 
   React.useEffect(() => {
-    const isAllHeld = dice.every(die => die.isHeld)
-    const firstValue = dice[0].value
-    const allSameValue = dice.every(die => die.value === firstValue)
+    const isAllHeld = dice.every((die) => die.isHeld);
+    const firstValue = dice[0].value;
+    const allSameValue = dice.every((die) => die.value === firstValue);
     setTenzies(isAllHeld && allSameValue);
   }, [dice]);
 
@@ -34,11 +34,16 @@ function App() {
   }
 
   function rollDice() {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.isHeld ? die : generateNewDie();
-      })
-    );
+    if (tenzies) {
+      setTenzies(false);
+      setDice(allNewDice());
+    } else {
+      setDice((prevDice) =>
+        prevDice.map((die) => {
+          return die.isHeld ? die : generateNewDie();
+        })
+      );
+    }
   }
 
   function generateNewDie() {
@@ -59,13 +64,9 @@ function App() {
 
   return (
     <div className="container">
-      {tenzies &&
-        <Confetti 
-          width={width - 4}
-          height={height - 4}  
-          gravity={0.06}
-        />
-      }
+      {tenzies && (
+        <Confetti width={width - 4} height={height - 4} gravity={0.06} />
+      )}
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
         Roll until all dice are the same. Click each die to freeze it at its

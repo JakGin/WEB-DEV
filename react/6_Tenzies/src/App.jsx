@@ -2,21 +2,27 @@ import React from "react";
 import Die from "./components/Die";
 
 function App() {
+  const nOfDices = 10;
+  const [dice, setDice] = React.useState(allNewDice())
+  const diceElements = dice.map(die => (
+    <Die number={die} />
+  ))
+
+  function allNewDice() {
+    const newDice = [];
+    for (let i = 0; i < nOfDices; i++) {
+      newDice.push(Math.ceil(Math.random() * 6));
+    }
+    return newDice;
+  }
+
   return (
     <div className="container">
       {/* <Header /> */}
-      <div className="dies">
-        <Die number={2} />
-        <Die number={4} />
-        <Die number={6} />
-        <Die number={4} />
-        <Die number={1} />
-        <Die number={3} />
-        <Die number={4} />
-        <Die number={4} />
-        <Die number={4} />
-        <Die number={2} />
+      <div className="dice-container">
+        {diceElements}
       </div>
+      <div className="button" onClick={() => {setDice(allNewDice())}}>Roll</div>
     </div>
   );
 }

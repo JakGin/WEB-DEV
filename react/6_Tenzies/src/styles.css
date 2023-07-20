@@ -12,8 +12,8 @@ body {
   background-color: #0B2434;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
+  margin-top: 100px;
 }
 
 .container {
@@ -25,13 +25,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 32px;
 }
 
 .dies {
   width: 100%;
-  font-family: Karla;
-  font-weight: bold;
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(5, 1fr);
   gap: 18px;
@@ -48,5 +47,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer
+  cursor: pointer;
+  font-family: Karla;
+  font-weight: 700;
+  font-size: 1.7rem;
 }

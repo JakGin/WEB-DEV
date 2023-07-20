@@ -6,10 +6,15 @@ import useWindowSize from "react-use/lib/useWindowSize";
 import "/src/styles/styles.css";
 
 function App() {
-  const nOfDices = 10;
+  const nOfDices = 5;
   const { width, height } = useWindowSize();
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
+  const [rollsToWin, setRollsToWin] = React.useState(0);
+  const [timeData, setTimeData] = React.useState({
+    timerStart: 0,
+    timeToWin: 0,
+  });
   const diceElements = dice.map((die) => (
     <Die
       key={die.id}
@@ -26,6 +31,21 @@ function App() {
     setTenzies(isAllHeld && allSameValue);
   }, [dice]);
 
+  React.useEffect(() => {
+    if (tenzies) {
+      setTimeData(prevTimeData => ({
+        ...prevTimeData,
+        timeToWin: Date.now() - prevTimeData.timerStart
+      }))
+    }
+  }, [tenzies])
+
+  React.useEffect(() => {
+    if (tenzies) {
+
+    }
+  }, [timeData.timeToWin])
+
   function allNewDice() {
     const newDice = [];
     for (let i = 0; i < nOfDices; i++) {
@@ -38,12 +58,20 @@ function App() {
     if (tenzies) {
       setTenzies(false);
       setDice(allNewDice());
+      setRollsToWin(0);
     } else {
       setDice((prevDice) =>
         prevDice.map((die) => {
           return die.isHeld ? die : generateNewDie();
         })
       );
+      if (rollsToWin === 0) {
+        setTimeData({
+          timerStart: Date.now(),
+          timeToWin: 0,
+        });
+      }
+      setRollsToWin((prevRolls) => prevRolls + 1);
     }
   }
 
@@ -70,8 +98,11 @@ function App() {
       )}
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
-        Roll until all dice are the same. Click each die to freeze it at its
-        current value between rolls.
+        {tenzies ? 
+        `Rolls: ${rollsToWin}\n
+        Time to win: ${timeData.timeToWin / 1000}s`
+        : "Roll until all dice are the same. Click each die to freeze it at it current value between rolls."
+        }
       </p>
       <div className="dice-container">{diceElements}</div>
       <button className="button" onClick={rollDice}>

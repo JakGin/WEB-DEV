@@ -16,13 +16,17 @@ function App() {
     return newDice;
   }
 
+  function rollDice() {
+    setDice(allNewDice())
+  }
+
   return (
     <div className="container">
       {/* <Header /> */}
       <div className="dice-container">
         {diceElements}
       </div>
-      <div className="button" onClick={() => {setDice(allNewDice())}}>Roll</div>
+      <div className="button" onClick={rollDice}>Roll</div>
     </div>
   );
 }

@@ -49,7 +49,7 @@ function App() {
       const currentRecord = JSON.parse(localStorage.getItem("bestTime"))
       if (timeData.timeToWin < currentRecord.timeToWin) {
         localStorage.setItem("bestTime", JSON.stringify({
-          rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
+          rollsToWin: rollsToWin, timeToWin: timeData.timeToWin, date: new Date(Date.now())
         }))
         setTimeData(prevTime => ({
           ...prevTime,
@@ -58,7 +58,7 @@ function App() {
       }
     } else if (tenzies) {
       localStorage.setItem("bestTime", JSON.stringify({
-        rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
+        rollsToWin: rollsToWin, timeToWin: timeData.timeToWin, date: new Date(Date.now())
       }))
     }
 
@@ -125,7 +125,7 @@ function App() {
 
   async function addTimeToDatabase() {
     await addDoc(winDataCollection, {
-      rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
+      rollsToWin: rollsToWin, timeToWin: timeData.timeToWin, date: new Date(Date.now())
     })
   }
 

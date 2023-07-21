@@ -1,12 +1,14 @@
 import React from "react";
-import "./styles/app.css";
+import Question from "./components/Question"
+import Start from "./components/Start"
+import MainGame from "./components/MainGame"
 
-function App() {
+export default function App() {
   return (
     <>
-      <h1>Test</h1>
+      <Question />
+      <Start />
+      <MainGame />
     </>
   );
 }
-
-export default App;

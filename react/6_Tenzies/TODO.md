@@ -3,6 +3,6 @@
 - ~~Track the number of rolls~~
 - ~~Track the time it took to win~~
 - ~~Show statistics after win~~
-- Button display Start Game before first game
-  (no onClick on dice)
-- Save your best time to localStorage
+- ~~After win make unchecking dice impossible~~
+- ~~Make dice not roll the same number twice~~
+- ~~Save your best time to localStorage~~

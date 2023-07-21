@@ -77,7 +77,7 @@ export default function Die(props) {
   }
 
   return (
-    <div className="die" style={styles} onClick={props.holdDice}>
+    <div className="die" style={styles} onClick={props.tenzies ? () => {} : props.holdDice}>
       {dieElement}
     </div>
   );

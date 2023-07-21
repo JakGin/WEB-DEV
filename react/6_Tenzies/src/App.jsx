@@ -6,7 +6,7 @@ import useWindowSize from "react-use/lib/useWindowSize";
 import "/src/styles/styles.css";
 
 function App() {
-  const nOfDices = 5;
+  const nOfDices = 15;
   const { width, height } = useWindowSize();
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
@@ -14,6 +14,7 @@ function App() {
   const [timeData, setTimeData] = React.useState({
     timerStart: 0,
     timeToWin: 0,
+    bestTime: false
   });
   const diceElements = dice.map((die) => (
     <Die
@@ -21,6 +22,7 @@ function App() {
       value={die.value}
       isHeld={die.isHeld}
       holdDice={() => holdDice(die.id)}
+      tenzies={tenzies}
     />
   ));
 
@@ -41,8 +43,21 @@ function App() {
   }, [tenzies])
 
   React.useEffect(() => {
-    if (tenzies) {
-
+    if (tenzies && localStorage.getItem("bestTime")) {
+      const currentRecord = JSON.parse(localStorage.getItem("bestTime"))
+      if (timeData.timeToWin < currentRecord.timeToWin) {
+        localStorage.setItem("bestTime", JSON.stringify({
+          rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
+        }))
+        setTimeData(prevTime => ({
+          ...prevTime,
+          bestTime: true,
+        }))
+      }
+    } else if (tenzies) {
+      localStorage.setItem("bestTime", JSON.stringify({
+        rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
+      }))
     }
   }, [timeData.timeToWin])
 
@@ -62,22 +77,33 @@ function App() {
     } else {
       setDice((prevDice) =>
         prevDice.map((die) => {
-          return die.isHeld ? die : generateNewDie();
+          return die.isHeld ? die : generateNewDie(die);
         })
       );
       if (rollsToWin === 0) {
         setTimeData({
           timerStart: Date.now(),
           timeToWin: 0,
+          bestTime: false
         });
       }
       setRollsToWin((prevRolls) => prevRolls + 1);
     }
+
+    timeData.bestTime = false;
   }
 
-  function generateNewDie() {
+  function generateNewDie(prevDie) {
+    let newDieValue = Math.ceil(Math.random() * 6)
+
+    if (prevDie) {
+      while(newDieValue === prevDie.value) {
+        newDieValue = Math.ceil(Math.random() * 6)
+      }
+    }
+
     return {
-      value: Math.ceil(Math.random() * 6),
+      value: newDieValue,
       isHeld: false,
       id: nanoid(),
     };
@@ -96,18 +122,22 @@ function App() {
       {tenzies && (
         <Confetti width={width - 4} height={height - 4} gravity={0.06} />
       )}
-      <h1 className="title">Tenzies</h1>
-      <p className="instructions">
+      <div>
+        <h1 className="title">Tenzies</h1>
         {tenzies ? 
-        `Rolls: ${rollsToWin}\n
-        Time to win: ${timeData.timeToWin / 1000}s`
-        : "Roll until all dice are the same. Click each die to freeze it at it current value between rolls."
+          <div className="score">
+            <div>Rolls: {rollsToWin}</div>  
+            <div>Time to win: {timeData.timeToWin / 1000}s</div>
+          </div>
+        :
+          <p className="instructions">Roll until all dice are the same. Click each die to freeze it at it current value between rolls.</p>
         }
-      </p>
+      </div>
       <div className="dice-container">{diceElements}</div>
       <button className="button" onClick={rollDice}>
         {tenzies ? "New Game" : "Roll"}
       </button>
+      {timeData.bestTime && <div className="best-time">It's your best time!</div>}
     </div>
   );
 }

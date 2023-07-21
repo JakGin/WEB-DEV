@@ -18,9 +18,10 @@ body {
 }
 
 .container {
-  width: 500px;
+  width: 450px;
   max-width: 600px;
-  height: 550px;
+  min-width: 500px;
+  height: 540px;
   background-color: #f3f3f3;
   border-radius: 10px;
   text-align: center;
@@ -59,7 +60,7 @@ body {
 
 .dice-container {
   display: grid;
-  grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+  grid-template: repeat(3, 1fr) / repeat(4, 1fr);
   gap: 18px;
   margin-bottom: 30px;
 }

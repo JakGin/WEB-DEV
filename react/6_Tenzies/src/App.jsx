@@ -8,7 +8,7 @@ import { addDoc } from "firebase/firestore";
 import { winDataCollection } from "./firebase";
 
 function App() {
-  const nOfDices = 15;
+  const nOfDices = 12;
   const { width, height } = useWindowSize();
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);

@@ -4,6 +4,8 @@ import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import "/src/styles/styles.css";
+import { addDoc } from "firebase/firestore";
+import { winDataCollection } from "./firebase";
 
 function App() {
   const nOfDices = 15;
@@ -58,6 +60,10 @@ function App() {
       localStorage.setItem("bestTime", JSON.stringify({
         rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
       }))
+    }
+
+    if (tenzies) {
+      addTimeToDatabase()
     }
   }, [timeData.timeToWin])
 
@@ -115,6 +121,12 @@ function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
+  }
+
+  async function addTimeToDatabase() {
+    await addDoc(winDataCollection, {
+      rollsToWin: rollsToWin, timeToWin: timeData.timeToWin
+    })
   }
 
   return (

@@ -3,6 +3,7 @@ import Question from "./Question";
 import {nanoid} from "nanoid"
 
 export default function MainGame() {
+  const numberOfQuestions = 20
   const [answersChecked, setAnswersChecked] = React.useState(false)
   const [questions, setQuestions] = React.useState([]);
   const [newGameFlag, setNewGameFlag] = React.useState(false);
@@ -17,7 +18,7 @@ export default function MainGame() {
   React.useEffect(() => {
     async function getQuestions() {
       const res = await fetch(
-        "https://opentdb.com/api.php?amount=5&type=multiple"
+        `https://opentdb.com/api.php?amount=${numberOfQuestions}&difficulty=easy`
       );
       const data = await res.json();
       setQuestions(
@@ -77,12 +78,24 @@ export default function MainGame() {
     return counter;
   }
 
+  function scoreElement() {
+    return (
+      <div className="score">
+        You scored
+        <span className="score-points">
+          {countCorrectAnswers()}/{numberOfQuestions}
+        </span>
+        correct answers
+      </div>
+    )
+  }
+
   return (
     <div className="mainGame">
       {questionsElements}
       {answersChecked ? 
-        <div>
-          <div className="score">{`You scored ${countCorrectAnswers()}/5 correct answers`}</div>
+        <div className="score-button">
+          {scoreElement()}
           <button onClick={resetGame}>Play again</button>
         </div>
         :

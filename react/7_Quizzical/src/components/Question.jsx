@@ -25,7 +25,7 @@ export default function Question(props) {
         if (question.id === props.id) {
           return {
             ...question,
-            selectedAnswerId: answer.id,
+            selectedAnswerId: answer.id === question.selectedAnswerId ? undefined : answer.id,
           };
         } else {
           return question;

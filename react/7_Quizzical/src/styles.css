@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,4 +8,81 @@
 
 img {
   display: block;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+}
+
+.start {
+  background-color: #F5F7FB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 0.2rem;
+  background-image: url("/images/blue-blob.svg"), url("/images/yellow-blob.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left, top right;
+  background-size: 40vw, 40vw;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.start h1 {
+  font-size: 4rem;
+  color: #293264;
+}
+
+.start p {
+  font-size: 1.5rem;
+  color: #293264;
+  font-family: 'Inter', sans-serif;
+}
+
+.start button {
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  font-family: 'Inter', sans-serif;
+  width: 40vw;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.start button:active {
+  box-shadow: 3px 3px 3px #000030;
+}
+
+.mainGame {
+  background-color: #F5F7FB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 100vh;
+  /* gap: 0.2rem; */
+  background-image: url("/images/blue-blob.svg"), url("/images/yellow-blob.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left, top right;
+  background-size: 25vw, 25vw;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.mainGame button {
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  font-family: 'Inter', sans-serif;
+  width: 33vw;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.mainGame button:active {
+  box-shadow: 3px 3px 3px #000030;
 }

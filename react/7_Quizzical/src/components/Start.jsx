@@ -1,9 +1,11 @@
-import React from "react"
+import React from "react";
 
-export default function Start() {
+export default function Start({ setActiveWindow }) {
   return (
-    <h1>
-      Start
-    </h1>
-  )
+    <div className="start">
+      <h1>Quizzical</h1>
+      <p>Trivia quesions quiz</p>
+      <button onClick={() => setActiveWindow("mainGameWindow")}>Start quiz</button>
+    </div>
+  );
 }

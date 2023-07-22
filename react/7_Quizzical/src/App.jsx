@@ -1,14 +1,17 @@
 import React from "react";
-import Question from "./components/Question"
-import Start from "./components/Start"
-import MainGame from "./components/MainGame"
+import Start from "./components/Start";
+import MainGame from "./components/MainGame";
 
 export default function App() {
+  const [activeWindow, setActiveWindow] = React.useState("startWindow");
+
   return (
     <>
-      <Question />
-      <Start />
-      <MainGame />
+      {activeWindow === "startWindow" ? (
+        <Start setActiveWindow={setActiveWindow} />
+        ) : (
+          <MainGame />
+      )}
     </>
   );
 }

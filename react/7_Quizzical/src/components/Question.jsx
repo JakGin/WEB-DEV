@@ -57,7 +57,7 @@ export default function Question(props) {
 
   return (
     <div className="question">
-      <h2>{decode(props.question)}</h2>
+      <h2>{props.id + 1}. {decode(props.question)}</h2>
       <div className="answers">{answersElements}</div>
       {
         props.selectedAnswerId === undefined && props.answersChecked &&

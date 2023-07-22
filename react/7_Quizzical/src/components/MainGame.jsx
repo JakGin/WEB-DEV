@@ -21,7 +21,7 @@ export default function MainGame(props) {
       const res = await fetch(fetchUrl);
       const data = await res.json();
       setQuestions(
-        data.results.map((item) => {
+        data.results.map((item, index) => {
           const correct_answer = {
             value: item.correct_answer,
             id: nanoid(),
@@ -36,7 +36,7 @@ export default function MainGame(props) {
 
           return {
             ...item,
-            id: nanoid(),
+            id: index,
             correct_answer: correct_answer,
             incorrect_answers: incorrect_answers,
             allAnswers: allAnswers,

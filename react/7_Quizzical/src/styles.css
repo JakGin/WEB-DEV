@@ -53,7 +53,7 @@ body {
 }
 
 .start button:active {
-  box-shadow: 3px 3px 3px #000030;
+  box-shadow: 2px 2px 2px #000050;
 }
 
 .mainGame {
@@ -61,14 +61,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  height: 100vh;
-  /* gap: 0.2rem; */
+  height: 100%;
+  gap: 0.5rem;
   background-image: url("/images/blue-blob.svg"), url("/images/yellow-blob.svg");
   background-repeat: no-repeat;
   background-position: bottom left, top right;
   background-size: 25vw, 25vw;
   background-repeat: no-repeat, no-repeat;
+  padding: 2rem;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #293264;
+  font-size: 1rem;
+  font-family: 'Karla', sans-serif;
+  padding: 0.5rem 0rem;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.answer {
+  border-radius: 10px;
+  border: 1px solid #4D5B9E;
+  text-align: center;
+  color: #293264;
+  font-family: 'Inter', sans-serif;
+  padding: 0.5rem;
+}
+
+.mainGame hr {
+  border: 0.5px solid #DBDEF0;
 }
 
 .mainGame button {
@@ -84,5 +113,5 @@ body {
 }
 
 .mainGame button:active {
-  box-shadow: 3px 3px 3px #000030;
+  box-shadow: 2px 2px 2px #000050;
 }

@@ -3,11 +3,13 @@ import Question from "./Question";
 import {nanoid} from "nanoid"
 
 export default function MainGame() {
+  const [answersChecked, setAnswersChecked] = React.useState(false)
   const [questions, setQuestions] = React.useState([]);
   const questionsElements = questions.map((question) => {
     return <Question
       {...question}
       key = {question.id}
+      setQuestions = {setQuestions}
     />;
   });
 
@@ -53,10 +55,30 @@ export default function MainGame() {
     return allAnswers
   }
 
+  function checkAnswers() {
+    setAnswersChecked(true)
+  }
+
+  function resetGame() {
+
+  }
+
+  function countCorrectAnswers() {
+
+  }
+
   return (
     <div className="mainGame">
       {questionsElements}
-      <button>Check answers</button>
+      {answersChecked ? 
+        <div>
+          <div className="score">{`You scored ${countCorrectAnswers()}/5 correct answers`}</div>
+          <button onClick={resetGame}>Play again</button>
+        </div>
+        :
+        <button onClick={checkAnswers}>Check answers</button>
+      }
+      
     </div>
   );
 }

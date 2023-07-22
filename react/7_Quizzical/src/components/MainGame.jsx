@@ -2,8 +2,7 @@ import React from "react";
 import Question from "./Question";
 import {nanoid} from "nanoid"
 
-export default function MainGame() {
-  const numberOfQuestions = 20
+export default function MainGame(props) {
   const [answersChecked, setAnswersChecked] = React.useState(false)
   const [questions, setQuestions] = React.useState([]);
   const [newGameFlag, setNewGameFlag] = React.useState(false);
@@ -12,14 +11,14 @@ export default function MainGame() {
       {...question}
       key = {question.id}
       setQuestions = {setQuestions}
+      answersChecked = {answersChecked}
     />;
   });
 
   React.useEffect(() => {
+    const fetchUrl = createFetchUrl()
     async function getQuestions() {
-      const res = await fetch(
-        `https://opentdb.com/api.php?amount=${numberOfQuestions}&difficulty=easy`
-      );
+      const res = await fetch(fetchUrl);
       const data = await res.json();
       setQuestions(
         data.results.map((item) => {
@@ -50,6 +49,17 @@ export default function MainGame() {
     getQuestions()
   }, [newGameFlag]);
 
+  function createFetchUrl() {
+    let baseUrl = `https://opentdb.com/api.php?amount=${props.questionsParameters.numberOfQuestions}`
+    if (props.questionsParameters.level !== "any") {
+      baseUrl += `&difficulty=${props.questionsParameters.level}`
+    }
+    if (props.questionsParameters.questionType !== "any") {
+      baseUrl += `&difficulty=${props.questionsParameters.questionType}`
+    }
+    return baseUrl
+  }
+
   function generateAllAnswers(correct_answer, incorrect_answers) {
     let allAnswers = [...incorrect_answers]
     let randomIndex = Math.floor(Math.random() * (allAnswers.length + 1))
@@ -59,7 +69,6 @@ export default function MainGame() {
 
   function checkAnswers() {
     setAnswersChecked(true)
-    
   }
 
   function resetGame() {
@@ -83,11 +92,17 @@ export default function MainGame() {
       <div className="score">
         You scored
         <span className="score-points">
-          {countCorrectAnswers()}/{numberOfQuestions}
+          {countCorrectAnswers()}/{props.questionsParameters.numberOfQuestions}
         </span>
         correct answers
       </div>
     )
+  }
+
+  function goToStart() {
+    setQuestions([])
+    setAnswersChecked(false)
+    props.setActiveWindow("startWindow")
   }
 
   return (
@@ -96,12 +111,12 @@ export default function MainGame() {
       {answersChecked ? 
         <div className="score-button">
           {scoreElement()}
-          <button onClick={resetGame}>Play again</button>
+          <button className="main-button" onClick={resetGame}>Play again</button>
         </div>
         :
-        <button onClick={checkAnswers}>Check answers</button>
+        <button className="main-button" onClick={checkAnswers}>Check answers</button>
       }
-      
+      <div class="return-button" onClick={goToStart}>&larr; Go back</div>
     </div>
   );
 }

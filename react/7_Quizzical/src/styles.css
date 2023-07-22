@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;700&display=swap');
 
+/* CSS RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,17 +11,26 @@ img {
   display: block;
 }
 
+.start label {
+  padding: 0;
+  margin: 0;
+}
+
+/* MAIN STYLES */
 body {
   font-family: 'Karla', sans-serif;
 }
 
 .start {
+  padding: 2rem;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
   background-color: #F5F7FB;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   gap: 0.2rem;
   background-image: url("/images/blue-blob.svg"), url("/images/yellow-blob.svg");
   background-repeat: no-repeat;
@@ -38,6 +48,43 @@ body {
   font-size: 1.5rem;
   color: #293264;
   font-family: 'Inter', sans-serif;
+}
+
+.start form {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #293264;
+  font-family: 'Inter', sans-serif;
+}
+
+.start form {
+  display: flex;
+  flex-direction: column;
+}
+
+.start input[type="range"]::-webkit-slider-thumb {
+  background-color: #4D5B9E;
+}
+
+.start input[type="range"]::-moz-range-thumb {
+  background-color: #4D5B9E;
+}
+
+.start input[type="range"]::-ms-thumb {
+  background-color: #4D5B9E;
+}
+
+.start input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #DEEBF8;
+}
+
+.start input[type="range"]::-moz-range-::-webkit-slider-runnable-track {
+  background-color: #DEEBF8;
+}
+
+.start input[type="range"]::-ms-::-webkit-slider-runnable-track {
+  background-color: #DEEBF8;
 }
 
 .start button {
@@ -63,6 +110,7 @@ body {
   align-items: center;
   height: 100%;
   min-height: 100vh;
+  width: 100%;
   gap: 0.5rem;
   background-image: url("/images/blue-blob.svg"), url("/images/yellow-blob.svg");
   background-repeat: no-repeat;
@@ -70,22 +118,26 @@ body {
   background-size: 25vw, 25vw;
   background-repeat: no-repeat, no-repeat;
   padding: 2rem;
+  position: relative;
 }
 
 .question {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
   color: #293264;
   font-size: 1rem;
   font-family: 'Karla', sans-serif;
   padding: 0.5rem 0rem;
+  width: 100%;
 }
 
 .answers {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template: auto / 1fr;
   gap: 0.8rem;
+  width: 100%;
 }
 
 .answer {
@@ -94,15 +146,22 @@ body {
   text-align: center;
   color: #293264;
   font-family: 'Inter', sans-serif;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
   cursor: pointer;
+}
+
+.no-selection-alert {
+  color: rgb(248, 148, 148);
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgb(192, 3, 3);
 }
 
 .mainGame hr {
   border: 0.5px solid #DBDEF0;
 }
 
-.mainGame button {
+.mainGame .main-button {
   background-color: #4D5B9E;
   color: #F5F7FB;
   font-family: 'Inter', sans-serif;
@@ -114,7 +173,7 @@ body {
   margin-top: 30px;
 }
 
-.mainGame button:active {
+.mainGame .main-button:active {
   box-shadow: 2px 2px 2px #000050;
 }
 
@@ -135,4 +194,41 @@ body {
 .score-points {
   font-size: 1.7rem;
   padding: 0 0.3rem;
+}
+
+.return-button {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 20vw;
+  cursor: pointer;
+  padding: 0 0 1rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  height: 15vh;
+  max-height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 600px) {
+  .answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .answers {
+    display: flex;
+    justify-content: center;
+  }
+
+  .answer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

@@ -7,7 +7,7 @@ export default function Question(props) {
   const answersElements = props.allAnswers.map(answer => {
     return (
       <div className="answer">
-        {decode(answer)}
+        {decode(answer.value)}
       </div>
     )
   })

@@ -94,6 +94,7 @@ body {
   color: #293264;
   font-family: 'Inter', sans-serif;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .mainGame hr {

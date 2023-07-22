@@ -19,13 +19,26 @@ export default function MainGame() {
       const data = await res.json();
       setQuestions(
         data.results.map((item) => {
-          const allAnswers = generateAllAnswers(item)
+          const correct_answer = {
+            value: item.correct_answer,
+            id: nanoid(),
+          }
+          const incorrect_answers = item.incorrect_answers.map(answer => {
+            return {
+              value: answer,
+              id: nanoid()
+            }
+          })
+          const allAnswers = generateAllAnswers(correct_answer, incorrect_answers)
 
           return {
             ...item,
             id: nanoid(),
+            correct_answer: correct_answer,
+            incorrect_answers: incorrect_answers,
             allAnswers: allAnswers,
-          };
+            selectedAnswerId: undefined,
+          }
         })
       );
     }
@@ -33,10 +46,10 @@ export default function MainGame() {
     getQuestions()
   }, []);
 
-  function generateAllAnswers(question) {
-    let allAnswers = [...question.incorrect_answers]
+  function generateAllAnswers(correct_answer, incorrect_answers) {
+    let allAnswers = [...incorrect_answers]
     let randomIndex = Math.floor(Math.random() * (questions.length + 1))
-    allAnswers.splice(randomIndex, 0, question.correct_answer)
+    allAnswers.splice(randomIndex, 0, correct_answer)
     return allAnswers
   }
 

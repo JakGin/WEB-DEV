@@ -5,6 +5,7 @@ import {nanoid} from "nanoid"
 export default function MainGame() {
   const [answersChecked, setAnswersChecked] = React.useState(false)
   const [questions, setQuestions] = React.useState([]);
+  const [newGameFlag, setNewGameFlag] = React.useState(false);
   const questionsElements = questions.map((question) => {
     return <Question
       {...question}
@@ -46,25 +47,34 @@ export default function MainGame() {
     }
 
     getQuestions()
-  }, []);
+  }, [newGameFlag]);
 
   function generateAllAnswers(correct_answer, incorrect_answers) {
     let allAnswers = [...incorrect_answers]
-    let randomIndex = Math.floor(Math.random() * (questions.length + 1))
+    let randomIndex = Math.floor(Math.random() * (allAnswers.length + 1))
     allAnswers.splice(randomIndex, 0, correct_answer)
     return allAnswers
   }
 
   function checkAnswers() {
     setAnswersChecked(true)
+    
   }
 
   function resetGame() {
-
+    setQuestions([])
+    setAnswersChecked(false)
+    setNewGameFlag(prevFlag => !prevFlag)
   }
 
   function countCorrectAnswers() {
-
+    let counter = 0;
+    questions.forEach(question => {
+      if (question.correct_answer.id === question.selectedAnswerId) {
+        counter++;
+      }
+    })
+    return counter;
   }
 
   return (

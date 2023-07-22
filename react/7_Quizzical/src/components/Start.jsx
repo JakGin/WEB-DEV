@@ -1,28 +1,70 @@
 import React from "react";
 
-export default function Start({ setActiveWindow }) {
+export default function Start({
+  setActiveWindow,
+  questionsParameters,
+  setQuestionsParameters,
+}) {
+  function setupGame() {
+    setActiveWindow("mainGameWindow");
+  }
+
+  function handleChange(event) {
+    const { name, value, type, checked } = event.target;
+    setQuestionsParameters((prevParameter) => {
+      return {
+        ...prevParameter,
+        [name]: type === "checkbox" ? checked : value,
+      };
+    });
+  }
+
   return (
     <div className="start">
       <h1>Quizzical</h1>
       <p>Trivia quesions quiz</p>
       <form>
-        <label for="customRange3" class="form-label">Number of questions: {}</label>
-        <input type="range" class="form-range" min="5" max="30" step="5" id="customRange3" />
-        <label for="my-select">Select an option:</label>
-        <select id="my-select" name="my-select">
-          <option value="option1">Any</option>
-          <option value="option1">Easy</option>
-          <option value="option2">Medium</option>
-          <option value="option3">Hard</option>
+        <label htmlFor="numberOfQuestions" className="form-label">
+          Number of questions: {questionsParameters.numberOfQuestions}
+        </label>
+        <input
+          type="range"
+          className="form-range"
+          min="5"
+          max="30"
+          step="5"
+          id="numberOfQuestions"
+          name="numberOfQuestions"
+          value={questionsParameters.numberOfQuestions}
+          onChange={handleChange}
+        />
+        <label htmlFor="level">Select level</label>
+        <select
+          value={questionsParameters.level}
+          id="level"
+          name="level"
+          className="select"
+          onChange={handleChange}
+        >
+          <option value="any">Any</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
         </select>
-        <label for="my-select">Select an option:</label>
-        <select id="my-select" name="my-select">
-          <option value="option1">Any</option>
-          <option value="option2">Multiple choice</option>
-          <option value="option3">Tru/False</option>
+        <label htmlFor="questionType">Select quesions type</label>
+        <select
+          value={questionsParameters.questionType}
+          id="questionType"
+          name="questionType"
+          className="select"
+          onChange={handleChange}
+        >
+          <option value="any">Any</option>
+          <option value="multiple">Multiple choice</option>
+          <option value="boolean">True/False</option>
         </select>
-      </form>  
-      <button onClick={() => setActiveWindow("mainGameWindow")}>Start quiz</button>
+      </form>
+      <button onClick={setupGame}>Start quiz</button>
     </div>
   );
 }

@@ -55,8 +55,9 @@ export default function MainGame(props) {
       baseUrl += `&difficulty=${props.questionsParameters.level}`
     }
     if (props.questionsParameters.questionType !== "any") {
-      baseUrl += `&difficulty=${props.questionsParameters.questionType}`
+      baseUrl += `&type=${props.questionsParameters.questionType}`
     }
+    console.log(baseUrl)
     return baseUrl
   }
 
@@ -116,7 +117,7 @@ export default function MainGame(props) {
         :
         <button className="main-button" onClick={checkAnswers}>Check answers</button>
       }
-      <div class="return-button" onClick={goToStart}>&larr; Go back</div>
+      <div className="return-button" onClick={goToStart}>&larr; Go back</div>
     </div>
   );
 }

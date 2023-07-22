@@ -56,11 +56,40 @@ body {
   font-size: 1.2rem;
   color: #293264;
   font-family: 'Inter', sans-serif;
-}
-
-.start form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.start form label {
+  color: #293264;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.start form .select {
+  color: #293264;
+  font-family: 'Inter', sans-serif;
+  background-color: #DEEBF8;
+  border: 1px solid #5c68ac;
+  box-shadow: 2px 2px 2px #5c68ac;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.start form .select option {
+  border-bottom: 1px solid black;
+  padding: 2rem;
+}
+
+.start form .select option:hover {
+  background-color: #4D5B9E;
 }
 
 .start input[type="range"]::-webkit-slider-thumb {
@@ -210,7 +239,7 @@ body {
   text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   font-weight: 700;
 }
 

@@ -8,14 +8,21 @@ export default function App() {
     numberOfQuestions: 5,
     level: "any",
     questionType: "any",
-  })
+  });
 
   return (
     <>
       {activeWindow === "startWindow" ? (
-        <Start setActiveWindow={setActiveWindow} setQuestionsParameters={setQuestionsParameters}/>
-        ) : (
-          <MainGame setActiveWindow={setActiveWindow} questionsParameters={questionsParameters}/>
+        <Start
+          setActiveWindow={setActiveWindow}
+          questionsParameters={questionsParameters}
+          setQuestionsParameters={setQuestionsParameters}
+        />
+      ) : (
+        <MainGame
+          setActiveWindow={setActiveWindow}
+          questionsParameters={questionsParameters}
+        />
       )}
     </>
   );

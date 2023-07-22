@@ -9,6 +9,5 @@ This repository is created to track my learning React journey.
 3. [Travel](https://jakgin-react2.netlify.app/)
 4. [Meme Generator](https://jakgin-react3.netlify.app/)
 5. [Weather Forecast](https://jakgin-react4.netlify.app/)
-6. TODO
-7. TODO
-8. TODO
+6. [Tenzies](https://jakgin-react6.netlify.app/)
+7. [Quizzical](https://jakgin-react7.netlify.app/)

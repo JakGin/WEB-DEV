@@ -7,5 +7,9 @@
 - methods chaining
 - createing new arrays (new Array())
 - .fill()
+- Constructor functions with methods
+- "this" keyword
+- Object.assign()
+- Import / Export
 
 # API

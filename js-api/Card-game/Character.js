@@ -16,14 +16,14 @@ function Character(data) {
     let diceHtml = this.getDiceHtml(diceCount);
 
     return `
-            <div class="character-card">
-                <h4 class="name"> ${name} </h4>
-                <img class="avatar" src="${avatar}" />
-                <div class="health">health: <b> ${health} </b></div>
-                <div class="dice-container">
-                    ${diceHtml}
-                </div>
-            </div>`;
+      <div class="character-card">
+          <h4 class="name"> ${name} </h4>
+          <img class="avatar" src="${avatar}" />
+          <div class="health">health: <b> ${health} </b></div>
+          <div class="dice-container">
+              ${diceHtml}
+          </div>
+      </div>`;
   };
 }
 

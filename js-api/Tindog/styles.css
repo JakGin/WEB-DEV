@@ -21,6 +21,7 @@ main {
 
 body {
   font-family: Poppins;
+  user-select: none;
 }
 
 nav {

@@ -5,7 +5,7 @@
 - .join()
 - return function inside another function
 - methods chaining
-- createing new arrays (new Array())
+- creating new arrays (new Array())
 - .fill()
 - Constructor functions with methods
 - "this" keyword
@@ -15,5 +15,6 @@
 - ternary operator
 - arrow functions
 - setTimeout()
+- Classes
 
 # API

@@ -5,10 +5,13 @@ function like() {
   if (!clickAllowed) return;
   clickAllowed = false;
 
+  currentDog.setHasBeenSwiped(true);
+  currentDog.setHasBeenLiked(true);
+
   document.querySelector(".like-button").style.backgroundColor = "#DBFFF4";
+  displayDog()
+
   setTimeout(() => {
-    currentDog.setHasBeenSwiped(true);
-    currentDog.setHasBeenLiked(true);
     document.querySelector(".like-button").style.backgroundColor = "#fff";
     displayNewDog();
     clickAllowed = true;
@@ -20,10 +23,13 @@ function nope() {
 
   clickAllowed = false;
 
+  currentDog.setHasBeenSwiped(true);
+  currentDog.setHasBeenLiked(false);
+
   document.querySelector(".cross-button").style.backgroundColor = "#FFE7EF";
+  displayDog()
+
   setTimeout(() => {
-    currentDog.setHasBeenSwiped(true);
-    currentDog.setHasBeenLiked(false);
     document.querySelector(".cross-button").style.backgroundColor = "#fff";
     displayNewDog();
     clickAllowed = true;
@@ -31,11 +37,17 @@ function nope() {
 }
 
 function displayNewDog() {
+  currentDogId++;
   if (currentDogId >= dogsToDisplay.length) {
     currentDogId = 0;
   }
   currentDog = dogsToDisplay[currentDogId];
-  currentDogId++;
+  document.querySelector(".dog-image-container").innerHTML =
+    currentDog.getDogHtml();
+}
+
+function displayDog() {
+  currentDog = dogsToDisplay[currentDogId];
   document.querySelector(".dog-image-container").innerHTML =
     currentDog.getDogHtml();
 }

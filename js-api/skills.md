@@ -11,5 +11,9 @@
 - "this" keyword
 - Object.assign()
 - Import / Export
+- .reduce()
+- ternary operator
+- arrow functions
+- setTimeout()
 
 # API

@@ -12,6 +12,105 @@ img {
 
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
+  margin: 2em;
   padding: 0;
+  background-color: #121212;
+  color: white;
+}
+
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url("img/background-image.png");
+  height: 156px;
+  background-position: 0 25%;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+input {
+  background-color: #9CA3AF;
+}
+
+button {
+  background-color: #4B4B4B;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+header h1 {
+  font-size: 2.5rem;
+
+}
+
+header h3 {
+  font-weight: 400;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+
+form input {
+  font-family: inherit;
+  border: none;
+  background-color: #303030;
+  color: #A5A5A5;
+  flex: 1 300px;
+  max-width: 600px;
+  text-indent: 0.5em;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+}
+
+form input[type="search"] {
+  background-image: url("img/search.svg");
+
+  /* background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 20px; */
+}
+
+form button {
+  font-family: inherit;
+  color: inherit;
+  flex: 0.2 80px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  max-width: 150px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #5C5C5C;
+}
+
+.movies {
+  display: flex;
+  justify-content: center;
+}
+
+.placeholder {
+  margin-top: 20vh;
+}
+
+.placeholder img {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.placeholder p {
+  color: #2E2E2F;
+  font-weight: 700;
+  margin: 0;
 }

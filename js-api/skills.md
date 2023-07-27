@@ -24,3 +24,7 @@
 - API / REST API
 - URL
 - fetch
+- Callback functions
+- Promises
+- Async / Await
+  

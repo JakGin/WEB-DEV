@@ -67,9 +67,13 @@ form input {
   color: #A5A5A5;
   flex: 1 300px;
   max-width: 600px;
-  text-indent: 0.5em;
+  text-indent: 2.4em;
   border-radius: 5px 0 0 5px;
   font-size: 1rem;
+  background-image: url("img/Search.svg");
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: 5px;
 }
 
 form input[type="search"] {

@@ -1,6 +1,4 @@
-// import { setMovieHtml } from "./index.js";
-
-let moviesHtml = ""
+let moviesHtml = "";
 
 function setMovieHtml(movie, index) {
   let addBtnIcon = "";
@@ -64,9 +62,9 @@ function renderPage() {
   const movies = JSON.parse(localStorage.getItem("watchlist"));
   if (movies.length === 0) {
     renderDefaultPage();
-    return
+    return;
   }
-  moviesHtml = ""
+  moviesHtml = "";
   movies.forEach((movie) => {
     setMovieHtml(movie, movie.index);
   });

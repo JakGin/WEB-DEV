@@ -22,21 +22,20 @@ async function getAdditionalMovieData(movie) {
 }
 
 function setMovieHtml(movie, index) {
-  let addBtnIcon = ""
+  let addBtnIcon = "";
 
-  let currentWatchlist = JSON.parse(localStorage.getItem
-    ("watchlist"))
-  if (! currentWatchlist) {
-    addBtnIcon = "img/black-plus.svg"
+  let currentWatchlist = JSON.parse(localStorage.getItem("watchlist"));
+  if (!currentWatchlist) {
+    addBtnIcon = "img/black-plus.svg";
   } else {
-    const check = currentWatchlist.filter(mv => mv.imdbID === movie.imdbID)
+    const check = currentWatchlist.filter((mv) => mv.imdbID === movie.imdbID);
     if (check.length === 0) {
-      addBtnIcon = "img/black-plus.svg"
+      addBtnIcon = "img/black-plus.svg";
     } else {
-      addBtnIcon = "img/black-minus.svg"
+      addBtnIcon = "img/black-minus.svg";
     }
   }
-  
+
   moviesHtml += `
     <div class="movie" id="movie-${index}">
       <img class="poster" src="${movie.Poster}" />
@@ -71,38 +70,43 @@ function renderDefaultPage() {
 
 function addButtonsListeners() {
   for (let index = 0; index < moviesData.length; index++) {
-    const button = document.querySelector(`#movie-${index} .add-btn`)
+    const button = document.querySelector(`#movie-${index} .add-btn`);
 
     button.addEventListener("click", () => {
-        let currentWatchlist = JSON.parse(localStorage.getItem
-        ("watchlist"))
-        if (! currentWatchlist) {
-          currentWatchlist = []
-          localStorage.setItem("watchlist", JSON.stringify(currentWatchlist))
-        }
-        const selectedMovie = moviesData.filter(movie => movie.index === index)[0]
+      let currentWatchlist = JSON.parse(localStorage.getItem("watchlist"));
+      if (!currentWatchlist) {
+        currentWatchlist = [];
+        localStorage.setItem("watchlist", JSON.stringify(currentWatchlist));
+      }
+      const selectedMovie = moviesData.filter(
+        (movie) => movie.index === index
+      )[0];
 
-        const check = currentWatchlist.filter(movie => movie.imdbID === selectedMovie.imdbID)
+      const check = currentWatchlist.filter(
+        (movie) => movie.imdbID === selectedMovie.imdbID
+      );
 
-        if (check.length === 0) {
-          currentWatchlist.push(selectedMovie)
-        } else {
-          currentWatchlist = currentWatchlist.filter(movie => movie.imdbID !== selectedMovie.imdbID)
-        }
-        localStorage.setItem("watchlist", JSON.stringify(currentWatchlist))
+      if (check.length === 0) {
+        currentWatchlist.push(selectedMovie);
+      } else {
+        currentWatchlist = currentWatchlist.filter(
+          (movie) => movie.imdbID !== selectedMovie.imdbID
+        );
+      }
+      localStorage.setItem("watchlist", JSON.stringify(currentWatchlist));
 
-        if (check.length) {
-          button.innerHTML = `
+      if (check.length) {
+        button.innerHTML = `
             <img src="img/black-plus.svg" />
             <p>Watchlist</p>
-          `
-        } else {
-          button.innerHTML = `
+          `;
+      } else {
+        button.innerHTML = `
             <img src="img/black-minus.svg" />
             <p>Watchlist</p>
-          `
-        }
-      });
+          `;
+      }
+    });
   }
 }
 
@@ -125,17 +129,19 @@ document.querySelector("form").addEventListener("submit", async (event) => {
       movie.Runtime = additionalData.Runtime;
       movie.Plot = additionalData.Plot;
       movie.Rating = additionalData.Ratings[0]?.Value;
-      movie.index = index
+      movie.index = index;
       moviesData.push(movie);
       setMovieHtml(movie, index);
     });
     setTimeout(() => {
       document.querySelector(".movies").innerHTML = moviesHtml;
       addButtonsListeners();
-    }, 1000)
+    }, 1000);
   } else {
     document.querySelector(".movies").innerHTML = `
       <div class="movie-not-found"><p>Unable to find what you're looking for. Please try another search.</p></div>
     `;
   }
 });
+
+export { setMovieHtml };

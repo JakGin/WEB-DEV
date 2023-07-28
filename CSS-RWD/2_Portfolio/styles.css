@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
 /* CSS RESET */
 * {
@@ -13,7 +13,7 @@ img {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 nav {
@@ -67,7 +67,7 @@ main {
 }
 
 .date {
-  font-size: 1em
+  font-size: 1em;
 }
 
 main h1 {
@@ -126,15 +126,19 @@ footer {
 }
 
 .footer-top {
-  color: #ECECEC;
+  color: #ececec;
   font-weight: 700;
 }
 
 .footer-bottom {
-  color: #D7D7D7;
+  color: #d7d7d7;
 }
 
-@media (min-width: 624px) {
+article:nth-child(n + 4) {
+  display: none;
+}
+
+@media (min-width: 716px) {
   section.blogs {
     flex-direction: row;
     flex-wrap: wrap;
@@ -143,6 +147,10 @@ footer {
 
   article {
     flex: 1 300px;
+  }
+
+  article:nth-child(n + 4) {
+    display: block;
   }
 }
 

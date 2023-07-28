@@ -4,7 +4,7 @@ let moviesData = [];
 
 async function getMovies(movie) {
   const res = await fetch(
-    `http://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}`
+    `https://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}`
   );
   const data = await res.json();
   if (data.Response === "False") {
@@ -15,7 +15,7 @@ async function getMovies(movie) {
 
 async function getAdditionalMovieData(movie) {
   const res = await fetch(
-    `http://www.omdbapi.com/?apikey=${API_KEY}&t=${movie}&plot=short`
+    `https://www.omdbapi.com/?apikey=${API_KEY}&t=${movie}&plot=short`
   );
   const data = await res.json();
   return data;

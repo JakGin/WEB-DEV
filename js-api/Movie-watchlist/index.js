@@ -22,6 +22,21 @@ async function getAdditionalMovieData(movie) {
 }
 
 function setMovieHtml(movie, index) {
+  let addBtnIcon = ""
+
+  let currentWatchlist = JSON.parse(localStorage.getItem
+    ("watchlist"))
+  if (! currentWatchlist) {
+    addBtnIcon = "img/black-plus.svg"
+  } else {
+    const check = currentWatchlist.filter(mv => mv.imdbID === movie.imdbID)
+    if (check.length === 0) {
+      addBtnIcon = "img/black-plus.svg"
+    } else {
+      addBtnIcon = "img/black-minus.svg"
+    }
+  }
+  
   moviesHtml += `
     <div class="movie" id="movie-${index}">
       <img class="poster" src="${movie.Poster}" />
@@ -33,7 +48,7 @@ function setMovieHtml(movie, index) {
       <p class="run-time">${movie.Runtime}</p>
       <p class="genre">${movie.Genre}</p>
       <button class="add-btn">
-        <img src="img/black-plus.svg" />
+        <img src="${addBtnIcon}" />
         <p>Watchlist</p>
       </button>
       <p class="plot">${movie.Plot}</p>
@@ -56,17 +71,37 @@ function renderDefaultPage() {
 
 function addButtonsListeners() {
   for (let index = 0; index < moviesData.length; index++) {
-    document
-      .querySelector(`#movie-${index} .add-btn`)
-      .addEventListener("click", () => {
+    const button = document.querySelector(`#movie-${index} .add-btn`)
+
+    button.addEventListener("click", () => {
         let currentWatchlist = JSON.parse(localStorage.getItem
         ("watchlist"))
         if (! currentWatchlist) {
           currentWatchlist = []
           localStorage.setItem("watchlist", JSON.stringify(currentWatchlist))
         }
-        currentWatchlist.push(moviesData.filter(movie => movie.index === index)[0])
+        const selectedMovie = moviesData.filter(movie => movie.index === index)[0]
+
+        const check = currentWatchlist.filter(movie => movie.imdbID === selectedMovie.imdbID)
+
+        if (check.length === 0) {
+          currentWatchlist.push(selectedMovie)
+        } else {
+          currentWatchlist = currentWatchlist.filter(movie => movie.imdbID !== selectedMovie.imdbID)
+        }
         localStorage.setItem("watchlist", JSON.stringify(currentWatchlist))
+
+        if (check.length) {
+          button.innerHTML = `
+            <img src="img/black-plus.svg" />
+            <p>Watchlist</p>
+          `
+        } else {
+          button.innerHTML = `
+            <img src="img/black-minus.svg" />
+            <p>Watchlist</p>
+          `
+        }
       });
   }
 }

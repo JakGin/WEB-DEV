@@ -15,22 +15,22 @@ async function getAdditionalMovieData(movie) {
   return data
 }
 
-function setMovieHtml(movies) {
+function setMovieHtml(movie, index) {
   document.querySelector(".movies").innerHTML += `
-    <div class="movie">
-      <img class="poster" src="${movies.Poster}" />
+    <div class="movie" id="movie-${index}">
+      <img class="poster" src="${movie.Poster}" />
       <header>
-        <h2 class="movie-title">${movies.Title}</h2>
+        <h2 class="movie-title">${movie.Title}</h2>
         <img src="img/star.svg" />
-        ${movies.Rating}
+        ${movie.Rating}
       </header>
-      <p class="run-time">${movies.Runtime}</p>
-      <p class="genre">${movies.Genre}</p>
+      <p class="run-time">${movie.Runtime}</p>
+      <p class="genre">${movie.Genre}</p>
       <button class="add-btn">
         <img src="img/black-plus.svg" />
         <p>Watchlist</p>
       </button>
-      <p class="plot">${movies.Plot}</p>
+      <p class="plot">${movie.Plot}</p>
     </div>
   `
 }
@@ -59,13 +59,14 @@ document.querySelector("form").addEventListener("submit", async (event) => {
   let data = await getMovies(movie)
   if (data !== "Movie Not Found") {
     data = filterMovies(data)
-    data.forEach(async (movie) => {
+    data.forEach(async (movie, index) => {
       const additionalData = await getAdditionalMovieData(movie.Title)
       movie.Genre = additionalData.Genre
       movie.Runtime = additionalData.Runtime
       movie.Plot = additionalData.Plot
       movie.Rating = additionalData.Ratings[0]?.Value
-      setMovieHtml(movie)
+      setMovieHtml(movie, index)
+      addLister(index)
     })
     
   } else {
@@ -74,3 +75,10 @@ document.querySelector("form").addEventListener("submit", async (event) => {
     `
   }
 })
+
+function addLister(index) {
+  document.querySelector(`#movie-${index} .add-btn`).addEventListener("click", () => {
+    // localStorage.setItem("watchlist", movie)
+    console.log("I'm here")
+  })
+}

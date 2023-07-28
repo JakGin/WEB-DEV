@@ -50,8 +50,15 @@ header h1 {
 
 }
 
-header h3 {
+header a {
   font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+}
+
+header a:hover,
+header a:focus {
+  color: #b5c2fa;
 }
 
 form {
@@ -76,14 +83,6 @@ form input {
   background-position: 5px;
 }
 
-form input[type="search"] {
-  background-image: url("img/search.svg");
-
-  /* background-position: left center;
-  background-repeat: no-repeat;
-  padding-left: 20px; */
-}
-
 form button {
   font-family: inherit;
   color: inherit;
@@ -102,6 +101,8 @@ form button:hover {
 .movies {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .placeholder {
@@ -119,6 +120,17 @@ form button:hover {
   margin: 0;
 }
 
+.movie-not-found {
+  margin-top: 20vh;
+}
+
+.movie-not-found p {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #6B6B6B;
+}
+
 .movie {
   display: grid;
+
 }

@@ -1,4 +1,4 @@
-const API_KEY = "1a5ffb62A"
+const API_KEY = "1a5ffb62a"
 
 async function getMovies(movie) {
   const res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}`)
@@ -36,7 +36,7 @@ document.querySelector("form").addEventListener("submit", async (event) => {
     setMoviesHtml(data)
   } else {
     document.querySelector(".movies").innerHTML = `
-      <div class="placeholder" style="font-size: 2rem;"><p>Movie Not Found</p></div>
+      <div class="movie-not-found"><p>Unable to find what you're looking for. Please try another search.</p></div>
     `
   }
 })

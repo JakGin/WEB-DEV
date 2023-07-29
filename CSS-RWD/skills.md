@@ -16,3 +16,13 @@
   - repeat(), repeat(auto-fit/fill, minmax(100px, 300px))
   - implicit/explicit columns and rows
   - grid-template-areas, grid-area
+
+# UI
+
+- White Space
+- Alignment
+- Scale
+- Contrast
+- Typography
+- Color
+- Visual Hierarchy

@@ -27,4 +27,4 @@
 - Callback functions
 - Promises
 - Async / Await
-  
+- Promise rejection

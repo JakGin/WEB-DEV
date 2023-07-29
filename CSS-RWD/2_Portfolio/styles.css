@@ -12,6 +12,11 @@ img {
   width: 100%;
 }
 
+/* UTILITY */
+.centered {
+  text-align: center;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
 }
@@ -36,6 +41,7 @@ nav a {
   text-decoration: none;
   color: #090909;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 nav a:hover {
@@ -51,7 +57,7 @@ nav a:last-child {
   padding-left: 1.5em;
 }
 
-main {
+.main-index {
   background-image: url("./img/main.png");
   min-height: 400px;
   background-size: cover;
@@ -70,7 +76,7 @@ main {
   font-size: 1em;
 }
 
-main h1 {
+.main-index h1 {
   margin: 0.2em 0;
 }
 
@@ -159,5 +165,66 @@ article:nth-child(n + 4) {
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 400px));
     grid-gap: 3em;
+  }
+}
+
+/* HOME STYLES */
+
+.main-home {
+  padding: 2em 2em 0 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.main-home h1 {
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.main-home p {
+  font-size: 1.1rem;
+}
+
+.main-home .home-img {
+  border-radius: 5px;
+  height: 40vw;
+  max-height: 500px;
+  max-width: 800px;
+}
+
+.main-home .home-img img {
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: 0 80%;
+}
+
+section.home-story {
+  padding: 2em;
+}
+
+.home-story h3 {
+  padding-bottom: 1em;
+  font-weight: 700;
+  margin-top: 1em;
+}
+
+.home-story h3:last-of-type {
+  margin-top: 1em;
+}
+
+.home-story p {
+  line-height: 1.25;
+}
+
+@media (min-width: 716px) {
+  section.home-blogs {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  article {
+    /* flex: 1 300px; */
   }
 }

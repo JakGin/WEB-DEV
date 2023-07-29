@@ -223,8 +223,4 @@ section.home-story {
     flex-direction: row;
     justify-content: center;
   }
-
-  article {
-    /* flex: 1 300px; */
-  }
 }

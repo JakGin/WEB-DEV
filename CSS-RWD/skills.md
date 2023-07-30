@@ -26,3 +26,4 @@
 - Typography
 - Color
 - Visual Hierarchy
+- Making even small layouts interesting

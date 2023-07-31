@@ -10,3 +10,13 @@
 - 8
 - 9
 - 10
+
+# React - advanced
+
+1. Reusability
+  - children props
+  - overloaded components
+  - react-icons.github.io
+  - React.Children.map() React.cloneElement()
+  - React.createContext() React.useContext
+  - Headless components

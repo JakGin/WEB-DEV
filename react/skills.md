@@ -16,7 +16,7 @@
 1. Reusability
   - children props
   - overloaded components
-  - react-icons.github.io (icon library for React)
+  - react-icons.github.io (icon library for)
   - React.Children.map() React.cloneElement()
   - React.createContext() React.useContext
   - Headless components

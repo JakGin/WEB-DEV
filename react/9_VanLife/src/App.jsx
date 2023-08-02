@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import "./index.css";
 
+import "../server"
+
 function App() {
   return (
     <BrowserRouter>

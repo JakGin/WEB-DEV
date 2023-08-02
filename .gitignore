@@ -1,2 +1,5 @@
 web_dev.code-workspace
 *.env
+
+# Local Netlify folder
+.netlify

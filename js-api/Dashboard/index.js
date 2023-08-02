@@ -12,7 +12,8 @@ async function setImage() {
     document.body.style.backgroundImage = `url(${image})`
     document.querySelector(".image-data").innerHTML = imageData
   } catch (error) {
-    document.body.style.backgroundImage = `url("https://img.freepik.com/free-photo/beautiful-aerial-shot-fronalpstock-mountains-switzerland-beautiful-pink-blue-sky_181624-9315.jpg?w=1380&t=st=1690618659~exp=1690619259~hmac=150e2a2e58b1f1d685131c7ec5fad117fc0fe280817bc79022f724cd297c3f96")`
+    console.log("CATCH")
+    document.body.style.backgroundImage = url("./placeholder-first-background.jpg")
   }
 }
 
@@ -60,7 +61,7 @@ function setWeather() {
         throw Error("Weather data not available")
       }
       const data = await res.json()
-      const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
       document.querySelector(".weather").innerHTML = `
           <p>${data.name}</p>
           <div class="icon-temp-container">

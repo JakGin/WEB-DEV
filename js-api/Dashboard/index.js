@@ -80,6 +80,7 @@ function setWeather() {
 
 setImage()
 setCrypto()
+setWeather()
+setTime()
 setInterval(setTime, 1000)
 setInterval(setWeather, 60000)
-setWeather()

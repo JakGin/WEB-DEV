@@ -14,12 +14,19 @@
 # React - advanced
 
 1. Reusability
-  - children props
-  - overloaded components
-  - react-icons.github.io (icon library for)
-  - React.Children.map() React.cloneElement()
-  - React.createContext() React.useContext
-  - Headless components
-  - useRef()
-  - Render prop
-  - Custom Hooks
+    - children props
+    - overloaded components
+    - react-icons.github.io (icon library for)
+    - React.Children.map() React.cloneElement()
+    - React.createContext() React.useContext
+    - Headless components
+    - useRef()
+    - Render prop
+    - Custom Hooks
+    - 
+<br><br>
+
+2. React Router 6
+    - BrowserRouter, Routes, Route, Link - basic routing
+    - Routing parameters, useParams
+    - Nested Routes, Outlet

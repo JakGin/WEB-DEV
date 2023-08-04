@@ -23,10 +23,13 @@
     - useRef()
     - Render prop
     - Custom Hooks
-    - 
+
 <br><br>
 
-2. React Router 6
+1. React Router 6
     - BrowserRouter, Routes, Route, Link - basic routing
     - Routing parameters, useParams
     - Nested Routes, Outlet
+    - NavLink, isActive
+    - Relative Links, Routes
+    - Links params: end, relative="path", to=".", to=".."

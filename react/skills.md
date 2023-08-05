@@ -33,3 +33,5 @@
     - NavLink, isActive
     - Relative Links, Routes
     - Links params: end, relative="path", to=".", to=".."
+    - <Navigate to="" />
+    - restricted path

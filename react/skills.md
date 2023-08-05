@@ -34,4 +34,5 @@
     - Relative Links, Routes
     - Links params: end, relative="path", to=".", to=".."
     - <Navigate to="" />
-    - restricted path
+    - protected path
+    - useNavigation()

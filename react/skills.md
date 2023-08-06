@@ -36,3 +36,5 @@
     - <Navigate to="" />
     - protected path
     - useNavigation()
+    - History Stack and Replace
+    - useLocation, location.pathname, location.state

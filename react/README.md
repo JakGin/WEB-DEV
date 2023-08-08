@@ -11,3 +11,6 @@ This repository is created to track my learning React journey.
 5. [Weather Forecast](https://jakgin-react4.netlify.app/)
 6. [Tenzies](https://jakgin-react6.netlify.app/)
 7. [Quizzical](https://jakgin-react7.netlify.app/)
+8. Reusability
+9. [VanLife](https://jakgin-react9.netlify.app/)
+10. [VanLife + Firestore](https://jakgin-react9b.netlify.app/)

@@ -1,6 +1,8 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
+import time
+
 # Create your views here.
 def index(request):
     return render(request, "singlepage/index.html")
@@ -11,6 +13,7 @@ texts = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam torto
 
 def section(request, num):
     if 1 <= num <= 3:
+        time.sleep(3)
         return HttpResponse(texts[num - 1])
     else:
         raise Http404("No such section")

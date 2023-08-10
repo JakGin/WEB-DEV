@@ -1,15 +1,13 @@
 # React - basics
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
+- Creating components, import, export
+- JSX
+- props
+- useState hook
+- useEffect hook
+- fetching and other in useEffect
+- forms with React
+- installing, importing and using other libraries in React
 
 # React - advanced
 
